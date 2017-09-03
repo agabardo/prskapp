@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons end>
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>PROSKI</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <div class="logoWrapper">
+        <img class="mainlogo" src="assets/img/proski-logo.png">
+    </div>
+    <ion-searchbar autocomplete="true" debounce="1200" (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list>
+        <!--button ion-item *ngFor="let category of categories" (click)="openCategory(category.id,category.title)">
+        {{ category.title }}
+      </button-->
+      <button ion-item *ngFor="let category of menuItems" (click)="openCategory(category.id,category.title)">
+        {{ category.title }}
+      </button>
+    </ion-list>
+</ion-content>

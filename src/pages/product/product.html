@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons end>
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>{{title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-card *ngFor="let product of details">
+
+        <!--ion-item>
+            <h2>{{ product.title }}</h2>
+            <p>${{ product.price }}</p>
+        </ion-item-->
+
+        <img width="70%" src="https://www.proski.com.au/images/products/{{ product.large_image }}">
+
+        <ion-card-content>
+            <h1>{{ product.title }}</h1>
+            <p>{{ product.full_desc }}</p>
+        </ion-card-content>
+        <ion-row padding-left>
+            <ion-col>
+                <h1> ${{ product.price }}</h1>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col text-center>
+                <button ion-button icon-left clear small>
+                <ion-icon name="eye"></ion-icon>
+                <div>Full description</div>
+                </button>
+            </ion-col>
+            <ion-col text-center>
+                <button ion-button icon-left clear small>
+                <ion-icon name="heart"></ion-icon>
+                <div>Favourite</div>
+                </button>
+            </ion-col>
+        </ion-row>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label floating>QTY</ion-label>
+                    <ion-input type="number" [(ngModel)]="qty" name="qty"></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-label floating>&nbsp;</ion-label>
+                <button (click)="qtyIncrease()" ion-button><ion-icon name="add"></ion-icon></button>
+                <button (click)="qtyDecrease()" ion-button><ion-icon name="remove"></ion-icon></button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col text-center>
+                <button ion-button (click)="addToCart()">
+                    <ion-icon name="cart"></ion-icon>&nbsp;ADD TO MY CART
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+
+</ion-content>

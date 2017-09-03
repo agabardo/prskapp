@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons end>
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            CONTACT US
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content fullscreen padding color="semitrans">
+    <ion-list>
+        <ion-item class="centered">
+            <h1>02-4926-5177</h1>
+        </ion-item>
+    </ion-list>
+    <form #myForm='ngForm' (ngSubmit)="onSubmit(myForm)">
+        <ion-item>
+            <ion-label floating>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="firstname" name="txtName"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" [(ngModel)]="email" name="txtEmail"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Message</ion-label>
+            <ion-textarea rows="6" [(ngModel)]="message" name="txtMessage"></ion-textarea>
+        </ion-item>
+        <button ion-button type="submit" block icon-left><ion-icon name="send"></ion-icon>Send</button>
+    </form>
+    <button ion-button full icon-left color="light"><ion-icon name="navigate"></ion-icon>Find us on map</button>
+    <button ion-button full icon-left color="light" (click)="callProski()"><ion-icon name="call"></ion-icon>Call us now</button>
+</ion-content>
