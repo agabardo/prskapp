@@ -17,7 +17,7 @@ export default [
   },
   {
     "id": 141,
-    "title": "WATERSKI"
+    "title": "WATER SKI"
   },
   {
     "id": 159,
@@ -29,6 +29,6 @@ export default [
   },
   {
     "id": 264,
-    "title": "WATERSPORTS CLOTHING"
+    "title": "WATER SPORTS CLOTHING"
   }
 ];
