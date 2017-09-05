@@ -29,6 +29,6 @@ export default [
   },
   {
     "id": 264,
-    "title": "WATER SPORTS CLOTHING"
+    "title": "WATER SPORTS"
   }
 ];
