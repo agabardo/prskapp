@@ -14,11 +14,18 @@
     </div>
     <ion-searchbar autocomplete="true" debounce="1200" (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list>
-        <!--button ion-item *ngFor="let category of categories" (click)="openCategory(category.id,category.title)">
-        {{ category.title }}
-      </button-->
-      <button ion-item *ngFor="let category of menuItems" (click)="openCategory(category.id,category.title)">
-        {{ category.title }}
-      </button>
+
+        <ion-item *ngFor="let category of menuItems" (click)="toogleSubcat(category.id)" (press)="openCategory(category.id,category.title)">
+            <ion-icon name="add-circle-outline"></ion-icon> <b> {{ category.title }} </b>
+
+            <ion-item-group *ngIf="isSubcatShown(category.id)" submenu id="sub-{{category.id}}">
+                <button ion-item *ngFor="let subcat of category.submenu" (click)="openCategory(subcat.id,subcat.title)">{{subcat.title}}</button>
+            </ion-item-group>
+        </ion-item>
+
+
+
+
+
     </ion-list>
 </ion-content>

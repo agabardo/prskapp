@@ -12,6 +12,7 @@ import { MenuItem} from "../../data/menu.interface";
   templateUrl: 'home.html',
 })
 export class HomePage {
+  private showSubcat: number;
   menuItems: MenuItem[] = [];
 
   categories: any;
@@ -34,13 +35,27 @@ export class HomePage {
     loader.dismiss();
   }
 
+  toogleSubcat(thisCategory:number){
+    if(this.showSubcat == thisCategory){
+      this.showSubcat = 0;
+    }
+    else{
+      this.showSubcat = thisCategory;
+    }
+  }
 
+  isSubcatShown(thisCategory:number){
+    if(this.showSubcat == thisCategory){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 
   getItems(ev: any) {
-
     // Reset items back to all of the items
     this.initializeItems();
-
     // set val to the value of the searchbar
     let val = ev.target.value;
     //console.log(val);
@@ -54,6 +69,7 @@ export class HomePage {
       });
     }
   }
+  
   /*
   ngOnInit() {
     let loader = this.loadingCtrl.create({
@@ -68,7 +84,6 @@ export class HomePage {
   }*/
 
   openCategory(id:number,title:string){
-    //console.log(id + " : " + title);
     this.navCtrl.push(CategoryPage, {id:id,title:title});
   }
 

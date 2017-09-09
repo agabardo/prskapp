@@ -45,8 +45,15 @@ export class CartPage {
             return itemEl.id == product.id;
           });
           this.items.splice(position,1);
-          this.nativeStorage.setItem('items',this.items);
-          //this.refreshPage();
+          this.nativeStorage.setItem('items',this.items).then(()=>{
+              let total = 0;
+              for(let i = 0; i < this.items.length; i++){
+                total = total + (this.items[i].price * this.items[i].qty);
+              }
+              this.total = total;
+              this.refreshPage();
+          });
+          
         },
         role : "update",
       },{
